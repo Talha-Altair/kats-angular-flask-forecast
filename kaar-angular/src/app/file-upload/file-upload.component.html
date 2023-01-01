@@ -1,0 +1,37 @@
+<router-outlet></router-outlet>
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Upload</title>
+
+	<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+	<div class="main">
+		<input type="checkbox" id="chk" aria-hidden="true">
+
+		<div class="signup">
+			<div class="text-center">
+				<input class="form-control" type="file" (change)="onChange($event)">
+
+				<button (click)="onUpload()" class="btn btn-success">
+					Upload
+				</button>
+			</div>
+			<div class="container text-center jumbotron text" *ngIf="message">
+				<a>Date    ||||||    Prediction</a>
+				<tr *ngFor="let elem of data">
+					
+					<td>{{elem.date}} |||||| {{elem.prediction}}</td>
+				</tr>
+			</div>
+			<div class="container text" *ngIf="loading">
+				<h3>Loading ...</h3>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
